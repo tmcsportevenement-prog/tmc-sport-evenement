@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TMC Sport Événementiel — Acteur du sport local & écoresponsable</title>
+  <meta name="description" content="TMC Sport Événementiel, association Loi 1901 : organisation d'épreuves de course à pied conviviales, sécurisées et écoresponsables. Découvrez L'Ultime Boucle, notre premier événement.">
+  <meta name="theme-color" content="#1E3F20">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1E3F20;
+      --green-light: #2c5a2f;
+      --orange: #E65F2B;
+      --orange-dark: #c94d1c;
+      --anthracite: #2B2D42;
+      --bg: #F8F9FA;
+      --white: #ffffff;
+      --muted: #5d6075;
+      --border: #e3e6ea;
+      --radius: 16px;
+      --shadow: 0 6px 24px rgba(43, 45, 66, .08);
+      --header-h: 88px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      color: var(--anthracite);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .6em; font-weight: 800; letter-spacing: -.02em; }
+    p { margin: 0 0 1em; }
+
+    .container { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+    section { padding: 4.5rem 0; }
+    .section-head { max-width: 680px; margin: 0 auto 2.75rem; text-align: center; }
+    .section-head h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--green); }
+    .section-head p { color: var(--muted); }
+    .eyebrow {
+      display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: .75rem;
+    }
+
+    /* Boutons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      padding: .9rem 1.6rem; border-radius: 999px; border: 2px solid transparent;
+      font: inherit; font-weight: 700; font-size: 1rem; text-decoration: none; cursor: pointer;
+      transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid var(--orange); outline-offset: 3px;
+    }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-green:hover { background: var(--green-light); }
+    .btn-outline { background: transparent; color: #fff; border-color: #fff; }
+    .btn-outline:hover { background: #fff; color: var(--green); }
+    .btn-orange { background: var(--orange); color: #fff; }
+    .btn-orange:hover { background: var(--orange-dark); }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 100; height: var(--header-h);
+      background: rgba(248, 249, 250, .94); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-weight: 800; font-size: 1.1rem; text-decoration: none; color: var(--green); letter-spacing: -.02em; }
+    .logo { display: inline-flex; align-items: center; gap: .6rem; }
+    .logo img { height: 72px; width: 72px; object-fit: contain; border-radius: 10px; display: block; }
+    .logo-text { display: none; }
+    .logo.no-img .logo-text { display: inline; }
+    .logo.no-img img { display: none; }
+    .logo-text span { color: var(--orange); }
+    .nav-links { display: flex; gap: .25rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a {
+      display: block; padding: .5rem .9rem; border-radius: 999px; text-decoration: none;
+      font-weight: 600; font-size: .95rem; transition: background .2s, color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { background: rgba(30, 63, 32, .08); color: var(--green); }
+    .burger {
+      display: none; width: 44px; height: 44px; background: none; border: 0; cursor: pointer;
+      border-radius: 10px; position: relative;
+    }
+    .burger span, .burger span::before, .burger span::after {
+      content: ""; position: absolute; left: 10px; width: 24px; height: 2.5px;
+      background: var(--anthracite); border-radius: 2px; transition: transform .25s, opacity .2s;
+    }
+    .burger span { top: 21px; }
+    .burger span::before { left: 0; top: -7px; }
+    .burger span::after { left: 0; top: 7px; }
+    .burger[aria-expanded="true"] span { background: transparent; }
+    .burger[aria-expanded="true"] span::before { transform: translateY(7px) rotate(45deg); }
+    .burger[aria-expanded="true"] span::after { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; background: var(--green); color: #fff; padding: 6.5rem 0 5.5rem; }
+    .hero-topo { position: absolute; right: -12%; top: 50%; transform: translateY(-50%); width: min(960px, 130%); height: auto; pointer-events: none; }
+    .hero-inner { position: relative; max-width: 780px; }
+    .hero .eyebrow { color: rgba(255, 255, 255, .75); border: 1px solid rgba(255, 255, 255, .3); padding: .3rem .8rem; border-radius: 999px; letter-spacing: .08em; }
+    .hero h1 { font-size: clamp(2.5rem, 8vw, 4.4rem); font-weight: 800; letter-spacing: -.035em; margin-bottom: .4em; }
+    .hero h1 em {
+      display: block; font-style: normal; font-weight: 600; letter-spacing: -.01em;
+      font-size: clamp(1.15rem, 3.2vw, 1.6rem); margin-top: .9em; padding-left: .9rem; border-left: 4px solid var(--orange);
+    }
+    .hero p { font-size: clamp(1.02rem, 2.2vw, 1.2rem); color: rgba(255, 255, 255, .88); max-width: 680px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2rem; }
+    .hero .btn-green { background: var(--orange); }
+    .hero .btn-green:hover { background: var(--orange-dark); }
+
+    /* Cartes */
+    .grid { display: grid; gap: 1.5rem; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; max-width: 820px; margin-inline: auto; }
+    @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+    .card {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.75rem; box-shadow: var(--shadow);
+    }
+
+    /* À propos */
+    .about-text { max-width: 760px; margin: 0 auto 3rem; text-align: center; font-size: 1.08rem; }
+    .about-text strong { color: var(--green); }
+    .founder { text-align: center; transition: transform .2s ease; }
+    .founder:hover { transform: translateY(-4px); }
+    .avatar { position: relative; overflow: hidden; }
+    .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .avatar {
+      width: 112px; height: 112px; border-radius: 50%; margin: 0 auto 1.1rem;
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      display: grid; place-items: center; color: rgba(255, 255, 255, .9);
+      border: 4px solid #fff; box-shadow: 0 0 0 2px var(--border);
+    }
+    .avatar svg { width: 56px; height: 56px; }
+    .founder h3 { font-size: 1.15rem; margin-bottom: .2em; }
+    .role { color: var(--orange); font-weight: 700; font-size: .9rem; margin-bottom: .75rem; }
+    .founder p:last-child { color: var(--muted); font-size: .95rem; margin: 0; }
+
+    /* Engagements */
+    .values { background: var(--white); border-block: 1px solid var(--border); }
+    .value-card { border-top: 4px solid var(--orange); }
+    .value-card .icon {
+      width: 56px; height: 56px; border-radius: 14px; background: rgba(30, 63, 32, .08);
+      display: grid; place-items: center; font-size: 1.7rem; margin-bottom: 1.1rem;
+    }
+    .value-card h3 { color: var(--green); font-size: 1.2rem; }
+    .value-card p { color: var(--muted); margin: 0; }
+
+    /* Événement */
+    .event {
+      display: grid; gap: 0; overflow: hidden; padding: 0; border-radius: 24px;
+    }
+    .event-visual {
+      background:
+        radial-gradient(circle at 20% 80%, rgba(230, 95, 43, .35), transparent 50%),
+        linear-gradient(160deg, var(--green), #12291a);
+      color: #fff; padding: 2.5rem 1.75rem; display: flex; flex-direction: column; justify-content: center;
+    }
+    .badge {
+      align-self: flex-start; display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--orange); color: #fff; font-weight: 700; font-size: .82rem;
+      padding: .45rem .9rem; border-radius: 999px; margin-bottom: 1.25rem;
+    }
+    .badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulse 1.8s infinite; }
+    @keyframes pulse { 50% { opacity: .3; } }
+    .event-visual h3 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: .15em; }
+    .event-visual .edition { color: rgba(255, 255, 255, .8); font-weight: 600; margin: 0; }
+    .event-body { padding: 2.5rem 1.75rem; }
+    .event-body > p { color: var(--muted); }
+    .formats { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+    .formats li {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+      padding: .9rem 1rem; text-align: center;
+    }
+    .formats strong { display: block; font-size: 1.25rem; color: var(--green); }
+    .formats span { font-size: .85rem; color: var(--muted); }
+    .formats li.unlimited { background: var(--green); border-color: var(--green); }
+    .formats li.unlimited strong, .formats li.unlimited span { color: #fff; }
+
+    /* Contact */
+    .contact { background: var(--white); border-top: 1px solid var(--border); }
+    .contact-grid { grid-template-columns: 1fr; max-width: 760px; margin-inline: auto; }
+    @media (min-width: 640px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+    .contact-card { text-align: center; border-top: 4px solid var(--orange); }
+    .contact-card .icon {
+      width: 56px; height: 56px; border-radius: 14px; background: rgba(30, 63, 32, .08);
+      display: grid; place-items: center; font-size: 1.6rem; margin: 0 auto 1rem;
+    }
+    .contact-card small {
+      display: block; color: var(--muted); font-size: .8rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: .3rem;
+    }
+    .contact-card a, .contact-card p { font-weight: 700; font-size: 1.05rem; color: var(--green); margin: 0; word-break: break-word; }
+    .contact-card a { text-decoration: none; }
+    .contact-card a:hover { color: var(--orange); }
+
+    /* Footer */
+    .site-footer { background: var(--anthracite); color: rgba(255, 255, 255, .8); padding: 2.5rem 0; font-size: .9rem; }
+    .footer-inner { display: grid; gap: 1rem; }
+    .site-footer strong { color: #fff; }
+    .legal { font-size: .82rem; color: rgba(255, 255, 255, .6); margin: 0; }
+
+    /* Responsive */
+    @media (min-width: 640px) {
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .event { grid-template-columns: 5fr 7fr; }
+      .event-visual, .event-body { padding: 3rem 2.5rem; }
+      .footer-inner { grid-template-columns: 1fr auto; align-items: center; }
+    }
+    @media (max-width: 820px) {
+      :root { --header-h: 76px; }
+      .logo img { height: 60px; width: 60px; }
+      .burger { display: block; }
+      .nav-links {
+        position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column;
+        background: var(--bg); padding: .75rem 1.25rem 1.25rem; border-bottom: 1px solid var(--border);
+        box-shadow: 0 12px 24px rgba(43, 45, 66, .1);
+        transform: translateY(-8px); opacity: 0; visibility: hidden; transition: all .2s ease;
+      }
+      .nav-links.open { transform: none; opacity: 1; visibility: visible; }
+      .nav-links a { padding: .85rem 1rem; }
+      section { padding: 3.5rem 0; }
+      .hero { padding: 4rem 0 4.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Navigation principale">
+      <a href="#accueil" class="logo" aria-label="TMC Sport Événementiel — Accueil">
+        <img src="tmc%20logo.png" alt="Logo TMC Sport Événementiel" onerror="this.parentNode.classList.add('no-img')">
+        <span class="logo-text">TMC <span>Sport</span> Événementiel</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span></span>
+      </button>
+      <ul class="nav-links" id="menu">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#association">L'Association</a></li>
+        <li><a href="#valeurs">Nos Valeurs</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="accueil">
+      <svg class="hero-topo" viewBox="0 0 800 600" aria-hidden="true">
+        <defs>
+          <path id="contour" d="M400 80 C560 60 700 170 690 300 C680 440 540 540 400 520 C250 500 110 430 120 290 C130 160 260 100 400 80Z"/>
+        </defs>
+        <g fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5">
+          <use href="#contour" transform="translate(400 300) scale(1.35) translate(-400 -300)"/>
+          <use href="#contour" transform="translate(400 300) scale(1.15) translate(-400 -300)"/>
+          <use href="#contour" transform="translate(400 300) scale(.95) translate(-400 -300)"/>
+          <use href="#contour" transform="translate(400 300) scale(.75) translate(-400 -300)"/>
+          <use href="#contour" transform="translate(400 300) scale(.55) translate(-400 -300)"/>
+          <use href="#contour" transform="translate(400 300) scale(.35) translate(-400 -300)"/>
+        </g>
+      </svg>
+      <div class="container hero-inner">
+        <span class="eyebrow">Association Loi 1901</span>
+        <h1>TMC Sport Événementiel <em>Acteur du sport local &amp; écoresponsable</em></h1>
+        <p>Association fondée par 3 passionnés de course à pied, dédiée à la création et l'organisation d'épreuves sportives conviviales, sécurisées et ancrées dans les territoires.</p>
+        <div class="hero-cta">
+          <a href="#projets" class="btn btn-green">Découvrir nos projets</a>
+          <a href="#contact" class="btn btn-outline">Nous contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="association">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">L'Association</span>
+          <h2>Des coureurs au service des territoires</h2>
+        </div>
+        <p class="about-text">
+          <strong>TMC Sport Événementiel</strong> est une association à but non lucratif régie par la <strong>loi du 1er juillet 1901</strong>. Notre mission : concevoir et organiser des épreuves de course à pied à taille humaine, qui allient exigence sportive, sécurité des participants et respect des lieux qui les accueillent, en collaboration étroite avec les communes et les acteurs locaux.
+        </p>
+        <div class="grid grid-3">
+          <article class="card founder">
+            <div class="avatar">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>
+              <img src="maxence.jpg" alt="Maxence, co-président" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <h3>Maxence</h3>
+            <p class="role">Co-président · Trésorier</p>
+            <p>Étudiant à AMOS Sport et ancien judoka, il cherche a crée des événements trail alliant bonne humeur et dépassement de soi.</p>
+          </article>
+          <article class="card founder">
+            <div class="avatar">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>
+              <img src="tom.jpg" alt="Tom, co-président" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <h3>Tom</h3>
+            <p class="role">Co-président · Secrétaire</p>
+            <p>Etudiant à Amos Sport et grand fan de sport depuis petit, la création d'événement sportif l'a toujours intérésser</p>
+          </article>
+          <article class="card founder">
+            <div class="avatar">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>
+              <img src="cyprien.jpg" alt="Cyprien, co-président" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <h3>Cyprien</h3>
+            <p class="role">Co-président</p>
+            <p>Passionné de course à pied et de trail, il s'investit dans la création d'épreuves conviviales et ancrées localement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engagements -->
+    <section class="values" id="valeurs">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Nos Engagements &amp; Garanties</span>
+          <h2>Des événements en toute confiance</h2>
+          <p>Deux principes guident chacune de nos organisations, pour offrir aux communes un partenaire fiable et transparent.</p>
+        </div>
+        <div class="grid grid-2">
+
+          <article class="card value-card">
+            <div class="icon" aria-hidden="true">🌿</div>
+            <h3>Écoresponsabilité</h3>
+            <p>Événements 100% zéro déchet, balisages temporaires et éphémères, aucun impact sur l'environnement.</p>
+          </article>
+          <article class="card value-card">
+            <div class="icon" aria-hidden="true">🤝</div>
+            <h3>Ancrage &amp; Convivialité</h3>
+            <p>Format à taille humaine, mise en valeur des sentiers et du patrimoine local.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Événement phare -->
+    <section id="projets">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Événement phare à venir</span>
+          <h2>Notre tout premier projet</h2>
+        </div>
+        <article class="card event">
+          <div class="event-visual">
+            <span class="badge">Projet en cours de création</span>
+            <h3>L'Ultime Boucle</h3>
+            <p class="edition">Édition 1</p>
+          </div>
+          <div class="event-body">
+            <p>Une course d'endurance au format <strong>Backyard Ultra</strong> : une boucle de <strong>6 km</strong> à parcourir toutes les heures, départ après départ, jusqu'à ce qu'il ne reste plus qu'un seul coureur. Convivial, accessible et spectaculaire, ce format permet à chacun de choisir son défi.</p>
+            <ul class="formats" aria-label="Formats proposés">
+              <li><strong>5 tours</strong><span>30 km</span></li>
+              <li><strong>10 tours</strong><span>60 km</span></li>
+              <li><strong>15 tours</strong><span>90 km</span></li>
+              <li class="unlimited"><strong>Illimité</strong><span>Jusqu'au dernier</span></li>
+            </ul>
+            <p style="margin-top:1.75rem;margin-bottom:0">
+              <a href="#contact" class="btn btn-orange">Être informé du projet</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2>Parlons de votre territoire</h2>
+          <p>Mairie, communauté de communes, office de tourisme : contactez-nous pour échanger sur un projet ou recevoir notre dossier de présentation.</p>
+        </div>
+        <div class="grid contact-grid">
+          <article class="card contact-card">
+            <div class="icon" aria-hidden="true">✉️</div>
+            <small>Email</small>
+            <a href="mailto:tmcsportevenement@gmail.com">tmcsportevenement@gmail.com</a>
+          </article>
+          <article class="card contact-card">
+            <div class="icon" aria-hidden="true">📞</div>
+            <small>Téléphone</small>
+            <a href="tel:+33763918586">07 63 91 85 86</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <img src="tmc%20logo.png" alt="" width="64" height="64" style="margin-bottom:.75rem;border-radius:10px;object-fit:contain" onerror="this.style.display='none'">
+        <strong>TMC Sport Événementiel</strong>
+        <p class="legal">Association déclarée loi du 1er juillet 1901 · Siège social : 18 rue de la Claire 69009 · N° RNA : en cours · Président et directeur de la publication : Contégal Maxence · Hébergeur : [à compléter].</p>
+      </div>
+      <p class="legal">© <span id="year">2026</span> TMC Sport Événementiel. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Année dynamique
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Menu burger
+      var burger = document.getElementById('burger');
+      var menu = document.getElementById('menu');
+
+      function setMenu(open) {
+        menu.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      }
+      burger.addEventListener('click', function () {
+        setMenu(burger.getAttribute('aria-expanded') !== 'true');
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setMenu(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setMenu(false);
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 820) setMenu(false);
+      });
+
+      // Lien actif selon la section visible
+      var links = menu.querySelectorAll('a');
+      var sections = Array.prototype.map.call(links, function (a) {
+        return document.querySelector(a.getAttribute('href'));
+      });
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              links.forEach(function (l) {
+                l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id);
+              });
+            }
+          });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        sections.forEach(function (s) { if (s) io.observe(s); });
+      }
+
+    })();
+  </script>
+</body>
+</html>
